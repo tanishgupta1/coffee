@@ -2,50 +2,37 @@ Coffee Machine
 ------------------
 
 
-For building the project inside the source code directory, use
+## For building the project inside the source code directory, use
 </br>
 <code>
 mvn clean install
 </code>
 <br></br>
 
-To run the code, go to the directory, and run
-
-    <code>
-     mvn exec:java -Dexec.mainClass=Application
-    </code>
-
-     Inside arguments pass json file path as input.
-</br>
-
-To run test:
-mvn test
+## To run the code, go to the director and run
+mvn exec:java -Dexec.mainClass=Application
 
 
-Points to note :
+## To run the test:
+mvn test 
 
-1) The Parking Lot will be created once in the whole lifecycle of the application. Once it's created, and if another request for the same comes, the application will show
-    </br>
-    <code>
-    Parking Lot Exists
-    </code>
-   </br></br>
-2) If unparking is tried on an empty slot, you will see following message
-   </br>
-   <code>
-   Slot is free
-   </code>
-   </br></br>
-3) If unparking is tried for a slot that does not exist, you will see following message
-    </br>
-    <code>
-    Check if slot exists.
-    </code>
 
-</br>
-</br>
-For any incomplete command, you will get an error message
-</br>
-<code>
-Incomplete params. Check parameters and input properly.
-</code>
+## Points to note :
+1) Command line will have two options *process_beverages* and *add_ingredients*
+2) Once you enter *process_beverages* , give file path of sample_coffee json. File path example - /Users/sample/coffee/<filename>.json
+3) If you enter *add_ingredients* then give file path of ingredients to be added. File path example - /Users/sample/coffee/<filename>.json
+    Format of json example:
+     <code>
+         {
+        "total_items_quantity": {
+        "hot_water": 500,
+        "hot_milk": 500,
+        "ginger_syrup": 100,
+         "sugar_syrup": 100,
+        "tea_leaves_syrup": 100
+        }
+    }
+     </code>
+    
+4) If *total_items_quantity* is in the json then it will keep on adding ingredients. This is applicable for both add_ingredients and process_beverages command.
+   
