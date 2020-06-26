@@ -1,6 +1,6 @@
 Coffee Machine
 ------------------
-
+##Make sure to use JAVA 8+
 
 ## For building the project inside the source code directory, use
 </br>
