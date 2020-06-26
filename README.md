@@ -35,4 +35,6 @@ mvn test
      </code>
     
 4) If *total_items_quantity* is in the json then it will keep on adding ingredients. This is applicable for both add_ingredients and process_beverages command.
+5) Implementation for beverages Black Tea, Green tea, Coffee and HotTea has been done for now
+6) Implementation for ingredients
    
