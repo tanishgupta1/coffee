@@ -14,6 +14,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
+import static common.Constants.HOT_WATER;
+
 @Builder
 @Getter
 public class HotTea implements Beverage {
@@ -38,7 +40,7 @@ public class HotTea implements Beverage {
 
   public Boolean validate(Map<String, Ingredient> globalIngredients) {
     // Handle null values for
-    if(!globalIngredients.containsKey("hot_water")) {
+    if(!globalIngredients.containsKey(HOT_WATER.getName())) {
       System.out.println("Hot Tea cannot be prepared because hot water is not available");
       return false;
     } else if(!globalIngredients.containsKey("ginger_syrup")) {
