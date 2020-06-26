@@ -37,8 +37,10 @@ public class CoffeeController {
         Integer outlets = processInput.getAsJsonObject("machine").getAsJsonObject("outlets").getAsJsonPrimitive("count_n").getAsInt();
         coffeeService.setOutlets(outlets);
 
-        HashMap<String, Object> quantityMap = new Gson().fromJson(processInput.getAsJsonObject("machine").getAsJsonObject("total_items_quantity").toString(), HashMap.class);
-        Quantity.getTotalQuantity().parseAndSetIngredients(quantityMap);
+        if(processInput.getAsJsonObject("machine").has("total_items_quantity")) {
+          HashMap<String, Object> quantityMap = new Gson().fromJson(processInput.getAsJsonObject("machine").getAsJsonObject("total_items_quantity").toString(), HashMap.class);
+          Quantity.getTotalQuantity().parseAndSetIngredients(quantityMap);
+        }
         List<Beverage> beverages = coffeeService.parseAndgetBeverages(processInput);
         coffeeService.processBeverageList(beverages);
       }
